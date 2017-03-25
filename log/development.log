@@ -6732,3 +6732,36 @@ Processing by PostsController#show as */*
   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", "14"]]
   Rendered posts/show.html.erb within layouts/application (0.3ms)
 Completed 200 OK in 27ms (Views: 22.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts/new" for ::1 at 2017-03-25 17:47:01 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (20.9ms)
+Completed 200 OK in 509ms (Views: 484.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/new" for ::1 at 2017-03-25 17:56:31 -0400
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 31ms (Views: 23.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/posts" for ::1 at 2017-03-25 17:56:34 -0400
+Processing by PostsController#create as */*
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fCiq+P7+Sqi+dI6mEaD1Zc70yKzw+7gtBGX5AlUFnGUGpwMfonVi+5Jx/N5aC5fhv9MJzRyw0dkVTnruFgPtiQ==", "post"=>{"title"=>"a", "description"=>"b"}}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "a"], ["description", "b"], ["created_at", "2017-03-25 21:56:34.694223"], ["updated_at", "2017-03-25 21:56:34.694223"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (0.2ms)
+Completed 201 Created in 46ms (Views: 39.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/posts/1/edit" for ::1 at 2017-03-25 17:59:56 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.6ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/_form.html.erb (19.0ms)
+  Rendered posts/edit.html.erb within layouts/application (24.4ms)
+Completed 200 OK in 278ms (Views: 244.5ms | ActiveRecord: 1.6ms)
